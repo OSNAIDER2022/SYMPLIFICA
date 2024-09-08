@@ -26,4 +26,5 @@ table
 repositories and services and allow adding products to an
 order. The products should be added via migrations.
 - Use the following UI as a reference:
+
 ![image](https://github.com/user-attachments/assets/623fec83-5677-4d56-a2cd-7b7ed6a77e1b)
