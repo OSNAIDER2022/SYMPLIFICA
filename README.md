@@ -13,6 +13,7 @@ technologies used:
 
 requeriments:
 Using the following db structure:
+
 ![image](https://github.com/user-attachments/assets/6dd7028b-54dc-429a-b8b2-21641a8700b8)
 
 - Code in English
