@@ -44,7 +44,7 @@ public class ProductServiceImplementation implements ProductService{
     @Override
     public void deleteProduct(Long id) throws ProductNotFoundException{
         Optional<Product> product = productRepository.findById(id);
-        
+
         if(!product.isPresent()){
             throw  new ProductNotFoundException("The product with id: "+ id +", doesn't exist in the inventary");
         }

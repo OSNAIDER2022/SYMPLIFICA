@@ -3,6 +3,7 @@ package com.symplifica.demoSymplifica.controller;
 import com.symplifica.demoSymplifica.entity.Product;
 import com.symplifica.demoSymplifica.error.ProductNotFoundException;
 import com.symplifica.demoSymplifica.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
