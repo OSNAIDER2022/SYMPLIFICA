@@ -6,35 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class OrderController {
+
     @Autowired
     OrderService orderService;
 
-    @PostMapping("/saveorder")
+    @PostMapping("order/saveorder")
     public Order saveOrder(@RequestBody Order order){
         return orderService.saveOrder(order);
     }
 
-    @PutMapping("/updateorder/{id}")
-    public Order updateOrder(@PathVariable Long id, Order order){
+    @PutMapping("order/updateorder/{id}")
+    public Order updateOrder(@PathVariable Long id, @RequestBody Order order){
         return orderService.updateOrder(id,order);
     }
 
-    @DeleteMapping("deleteorder/{id}")
-    public String deleteOrder(@PathVariable Long id){
+    @DeleteMapping("order/deleteorder/{id}")
+    public String deleteOrderById(@PathVariable Long id){
         orderService.deleteOrder(id);
         return "Ser ha eliminado la orden de id: " + id;
     }
+    @GetMapping("order/findorderbyid/{id}")
+    public Order findOrderById(@PathVariable Long id){
+        return orderService.findOrderById(id);
+    }
 
-    @GetMapping("findallorders")
+    @GetMapping("order/findallorders")
     public List<Order> findAllorders(){
         return orderService.listAllOrders();
     }
-//    @GetMapping("findProductByIdOrder/{id}")
-//    Optional<Order> findProductByIdOrder(@PathVariable Long id, @RequestBody Order order){
-//        return orderService.findProductByIdOrderJPQL(id, order);
-//    }
 }

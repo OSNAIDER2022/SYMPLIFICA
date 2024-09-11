@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
+
 
 @Service
-public class OrderServiceImplementation implements OrderService{
+public class OrderServiceImplementation implements OrderService {
     @Autowired
     OrderRepository orderRepository;
 
@@ -19,27 +19,28 @@ public class OrderServiceImplementation implements OrderService{
         return orderRepository.save(order);
     }
 
+
     @Override
     public Order updateOrder(Long id, Order order) {
         Order ofTheOrder = orderRepository.findById(id).get();
-        if(Objects.nonNull(order.getProductId()) && !"".equalsIgnoreCase(String.valueOf(order.getProductId()))){
+        if (Objects.nonNull(order.getProductId()) && !"".equalsIgnoreCase(String.valueOf(order.getProductId()))) {
             ofTheOrder.setProductId(order.getProductId());
         }
         return orderRepository.save(ofTheOrder);
     }
-
     @Override
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }
 
     @Override
-    public List<Order> listAllOrders() {
-        return orderRepository.findAll();
+    public Order findOrderById(Long id) {
+        return orderRepository.findById(id).get();
     }
 
-//    @Override
-//    public Optional<Order> findProductByIdOrderJPQL(Long id, Order order){
-//        return orderRepository.findProductByIdOrderJPQL(id, order);
-//    }
+    @Override
+    public List<Order> listAllOrders() {
+    return orderRepository.findAll();
+
+    }
 }
